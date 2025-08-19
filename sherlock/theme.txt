@@ -1,0 +1,1 @@
+/home/jwk/.config/sherlock/themes/everforest.css

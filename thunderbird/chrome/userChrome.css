@@ -1,0 +1,240 @@
+/* ============================================================
+   Thunderbird Everforest Dark (Medium) + JetBrains Mono 테마
+   ------------------------------------------------------------
+   - UI 전체에 JetBrains Mono 폰트 적용
+   - Everforest Medium 색상 기반
+   - 캘린더, 메일, 툴바 커스터마이징
+   ============================================================ */
+
+:root {
+  /* Everforest 색상 팔레트 */
+  --fg: #d3c6aa;
+  --red: #e67e80;
+  --orange: #e69875;
+  --yellow: #dbbc7f;
+  --green: #a7c080;
+  --aqua: #83c092;
+  --blue: #7fbbb3;
+  --purple: #d699b6;
+  --grey0: #7a8478;
+  --grey1: #859289;
+  --grey2: #9da9a0;
+  --bg0: #272e33;
+  --bg1: #2e383c;
+  --bg2: #374145;
+  --bg3: #414b50;
+  --bg4: #495156;
+  --bgblue: #384b55;
+  --bg-green: #3c4841;
+  --bg-dim: #1E2326;
+
+  /* 테마별 변수 */
+  --sidebar-background-color: var(--bg1) !important;
+  --sidebar-text-color: var(--fg) !important;
+  --toolbar-bgcolor: var(--bg2) !important;
+  --toolbar-color: var(--fg) !important;
+  --main-content-background-color: var(--bg0) !important;
+  --selected-item-background-color: var(--bg3) !important;
+  --selected-item-text-color: var(--green) !important;
+  --hover-item-background-color: var(--bg2) !important;
+  --hover-item-text-color: var(--green) !important;
+  --border-color: var(--bg4) !important;
+  --important-text-color: var(--red) !important;
+  --event-background-color: var(--grey0) !important;
+  --event-text-color: var(--bg0) !important;
+  --today-background-color: var(--bg2) !important;
+  --today-border-color: var(--green) !important;
+
+  --weekend-background-color: var(--bg0) !important;
+  --weekend-text-color: var(--orange) !important;
+  --calendar-view-toggle-background: var(--bg2) !important;
+  --button-background-color: var(--bg2) !important;
+  --button-hover-background-color: var(--bg3) !important;
+  --button-active-background-color: var(--bg4) !important;
+  --toolbar-bgcolor: var(--bg-dim) !important;
+  --spaces-bg-color: var(--bg-dim) !important;
+
+  --sidebar-highlight-background-color: var(--bgblue) !important;
+  --viewMonthDayOtherBackground: var(--bg4) !important;
+  --viewWeekendBackground: var(--bg3) !important;
+  --layout-background-0: var(--bg2) !important;
+  --viewHeaderSelectedBackground: var(--bgblue) !important;
+  --viewDayBoxSelectedBackground: var(--bgblue) !important;
+  --viewOffTimeBackground: var(--bgblue) !important;
+  --viewTodayBackground: var(--bg-dim) !important;
+  --tabs-toolbar-background-color: var(--bg-dim) !important;
+  --lwt-accent-color: var(--bg-dim) !important;
+}
+
+#tabs-toolbar {
+  linear-gradient(to top, var(--chrome-content-separator-color) 0, var(--tabs-toolbar-background-color) 1px) !important;
+}
+
+calendar-minimonth {
+  --mmMainBackground: var(--bg2) !important;
+  --mmBoxBackground: var(--bg4) !important;
+}
+
+/* UI 전체에 JetBrains Mono 폰트 적용 */
+* {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 13px !important;
+  color: var(--fg) !important;
+}
+
+/* 메인 윈도우 배경 */
+#messengerWindow, #messengerBox, #tabmail-container {
+  background-color: var(--main-content-background-color) !important;
+  color: var(--fg) !important;
+}
+
+/* 사이드바 (폴더 목록) */
+#folderTree {
+  background-color: var(--sidebar-background-color) !important;
+  color: var(--sidebar-text-color) !important;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+#folderTree treechildren::-moz-tree-row {
+  background-color: var(--sidebar-background-color) !important;
+}
+
+#folderTree treechildren::-moz-tree-row(selected) {
+  background-color: var(--selected-item-background-color) !important;
+  color: var(--selected-item-text-color) !important;
+}
+
+/* 메일 목록 */
+#threadTree treechildren {
+  background-color: var(--main-content-background-color) !important;
+  color: var(--fg) !important;
+}
+
+#threadTree treechildren::-moz-tree-row(selected) {
+  background-color: var(--selected-item-background-color) !important;
+  color: var(--selected-item-text-color) !important;
+}
+
+#threadTree treechildren::-moz-tree-cell-text(important) {
+  color: var(--important-text-color) !important;
+  font-weight: bold !important;
+}
+
+/* 메시지 미리보기 창 */
+#messagepane {
+  background-color: var(--main-content-background-color) !important;
+  color: var(--fg) !important;
+}
+
+/* 툴바 */
+#mail-bar3, #calendar-toolbox, .tabmail-tab, #unifiedToolbar {
+  background-color: var(--toolbar-bgcolor) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.toolbarbutton-1 {
+  color: var(--toolbar-color) !important;
+}
+
+.toolbarbutton-1:hover {
+  background-color: var(--hover-item-background-color) !important;
+  color: var(--hover-item-text-color) !important;
+}
+
+/* 탭 */
+.tab-background[selected="true"] {
+  background-color: var(--selected-item-background-color) !important;
+  color: var(--selected-item-text-color) !important;
+}
+
+/* ============================================================
+   캘린더 뷰 (월/주/일)
+   ============================================================ */
+
+/* 캘린더 공통 스타일 */
+calendar-month-view, calendar-week-view, calendar-day-view {
+  background-color: var(--main-content-background-color) !important;
+  color: var(--fg) !important;
+}
+
+#calendarViewHeader {
+  background-color: var(--sidebar-background-color) !important;
+}
+
+/* 월간 뷰 셀 */
+.calendar-month-day-box {
+  background-color: var(--bg1) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--fg) !important;
+}
+
+/* 오늘 날짜 */
+.calendar-month-day-box-current {
+  background-color: var(--today-background-color) !important;
+  border: 1px solid var(--today-border-color) !important;
+  color: var(--green) !important;
+  font-weight: bold !important;
+}
+
+.day-column-today .day-column-heading {
+    background-color: var(--today-background-color) !important;
+}
+
+/* 주말 */
+.calendar-month-day-box[weekend="true"] {
+  background-color: var(--weekend-background-color) !important;
+  color: var(--weekend-text-color) !important;
+}
+
+/* 이벤트 */
+.calendar-event-box-container, calendar-event-box {
+  background-color: var(--event-background-color) !important;
+  color: var(--event-text-color) !important;
+  border-radius: 3px !important;
+  padding: 2px 4px !important;
+  font-weight: 600 !important;
+}
+
+.calendar-event-box-label,
+.calendar-event-details-core {
+  color: var(--event-text-color) !important;
+  font-weight: 600 !important;
+}
+
+calendar-event-box:hover {
+  background-color: var(--hover-item-background-color) !important;
+  color: var(--hover-item-text-color) !important;
+}
+
+
+/* ============================================================
+   기타 UI 요소
+   ============================================================ */
+
+/* 대화상자 및 팝업 */
+.dialogBox, .dialog-content-box {
+  background-color: var(--bg1) !important;
+  color: var(--fg) !important;
+}
+
+/* 입력 필드 */
+textbox, input, textarea {
+  background-color: var(--bg2) !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 스크롤바 */
+scrollbar {
+  -moz-appearance: none !important;
+  background-color: var(--bg0) !important;
+}
+
+scrollbar thumb {
+  background-color: var(--bg3) !important;
+  border-radius: 4px !important;
+}
+
+
+calendar-minimonth {
+}
